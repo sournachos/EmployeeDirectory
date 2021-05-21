@@ -5,44 +5,43 @@ import API from "../utils/API";
 import EmployeeContext from "../utils/employeeContext";
 
 function SearchResultContainer(){
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState({
+    name: "",
+    picture: "",
+    dob: "",
+    email: ""
+  });
   
 
   // When the component mounts, a call will be made to get random users.
   useEffect(() => {
     API.search()
-    .then(employees => {
-      setEmployees(employees);
+    .then(data => {
+      setEmployees({
+        name: data.results[0].name,
+        picture: data.results[0].picture.medium,
+        dob: data.results[0].dob.date,
+        email: data.results[0].email
+      });
+      console.log(employees)
     })
     .catch(err => console.log(err));
-    
-    console.log(employees)
   }, []);
+
 
 
   function handleBtnClick(event) {
     // Get the title of the clicked button
-    const btnName = event.target.getAttribute("data-value");
-    if (btnName === "next") {
-      const newUserIndex = userIndex + 1;
-      nextUser(newUserIndex);
-    } else {
-      const newUserIndex = userIndex - 1;
-      previousUser(newUserIndex);
-    }
+
   }
 
     return (
-      <EmployeeContext.Provider value={{ name, email, picture, dob, handleBtnClick }}>
+     <EmployeeContext.Provider value={{name, email, dob, picture}}>
       <div>
-        <SearchForm
-          search={this.state.search}
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-        />
-        <ResultList results={this.state.results} />
+        <SearchForm/>
+        <ResultList/>
       </div>
-      </EmployeeContext.Provider>
+   </EmployeeContext.Provider>
     );
   }
 

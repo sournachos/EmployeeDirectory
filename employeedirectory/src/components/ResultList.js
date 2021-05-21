@@ -1,15 +1,16 @@
-import React from "react";
+// import React from "react";
+// import EmployeeContext from "../utils/employeeContext";
 
-function ResultList(props) {
-  return (
-    <ul className="list-group">
-      {props.results.map(result => (
-        <li className="list-group-item" key={result.id}>
-          <img alt={result.title} className="img-fluid" src={result.images.original.url} />
-        </li>
-      ))}
-    </ul>
-  );
-}
+// function ResultList() {
+//   return (
+//     <ul className="list-group">
+//       {employees.map(employee => (
+//         <li className="list-group-item">
+//           <h2>`Name: {employee.name}`</h2>
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
 
-export default ResultList;
+// export default ResultList;

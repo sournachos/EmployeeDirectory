@@ -5,7 +5,6 @@ const EmployeeContext = React.createContext({
     picture: "",
     dob: "",
     email: "",
-  handleBtnClick: () => {}
 });
 
 export default EmployeeContext;
