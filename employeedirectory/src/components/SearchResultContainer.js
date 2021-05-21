@@ -31,7 +31,7 @@ function SearchResultContainer(){
 
 
   function handleBtnClick(event) {
-    // Get the title of the clicked button
+  
 
   }
 
